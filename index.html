@@ -512,6 +512,101 @@
             font-size: 1.2rem;
             font-style: italic;
         }
+
+        /* Honeymoon Section */
+        .honeymoon {
+            background: var(--off-white);
+        }
+
+        .honeymoon-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .honeymoon-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .honeymoon-intro p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--sage);
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        .honeymoon-details {
+            background: white;
+            padding: 3rem;
+            border: 1px solid rgba(197, 165, 114, 0.3);
+            box-shadow: 0 10px 60px rgba(27, 61, 47, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .honeymoon-details h3 {
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .honeymoon-details p {
+            color: var(--sage);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .iban-section {
+            background: var(--forest-green);
+            color: var(--cream);
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid var(--gold);
+        }
+
+        .iban-section h4 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .iban-section p {
+            color: var(--cream);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .iban-display {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border: 1px solid var(--gold);
+            margin: 2rem 0;
+            font-family: 'Montserrat', monospace;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            word-break: break-all;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            user-select: all;
+        }
+
+        .iban-display:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .iban-display:active {
+            transform: scale(0.98);
+        }
+
     </style>
 </head>
 <body>
@@ -520,6 +615,7 @@
             <li><a href="#story">História</a></li>
             <li><a href="#events">Eventos</a></li>
             <li><a href="#details">Detalhes</a></li>
+            <li><a href="#honeymoon">Lua de Mel</a></li>
             <li><a href="#rsvp">RSVP</a></li>
         </ul>
     </nav>
@@ -565,26 +661,50 @@
         <div class="events-grid">
 
             <div class="event-card">
-                <div class="event-icon">&#9829;</div>
+                <div class="event-icon">✞</div>
                 <h3>Cerimónia</h3>
                 <p class="event-date">Sábado, 21 de junho, 2025</p>
-                <p class="event-time">14:30</p>
-                <p class="event-location">Basilica de Santa Quitéria de Meca</p>
+                <p class="event-time">15:00</p>
+                <p class="event-location">Basílica de Santa Quitéria de Meca</p>
                 <p class="event-address">Alenquer, Portugal</p>
             </div>
             <div class="event-card">
-                <div class="event-icon">&#9734;</div>
-                <h3>Copo-d'água</h3>
+                <div class="event-icon">☼</div>
+                <h3>Sunset</h3>
                 <p class="event-date">Sábado, 21 de junho, 2025</p>
                 <p class="event-time">18:00</p>
-                <p class="event-location">Salão Nobre de Rosewood Manor</p>
-                <p class="event-address">142 Garden Lane, Greenwich, CT</p>
+                <p class="event-location">Solar de Pancas</p>
+                <p class="event-address">Alenquer, Portugal</p>
             </div>
             <div class="event-card">
-                <div class="event-icon">&#9788;</div>
+                <div class="event-icon">⚜</div>
+                <h3>Corte do Bolo</h3>
+                <p class="event-date">Sábado, 21 de junho, 2025</p>
+                <p class="event-time">15:00</p>
+                <p class="event-location">Solar de Pancas</p>
+                <p class="event-address">Alenquer, Portugal</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">◉</div>
                 <h3>Copo-d'água</h3>
                 <p class="event-date">Domingo, 22 de junho, 2025</p>
-                <p class="event-time">10:30</p>
+                <p class="event-time">20:30</p>
+                <p class="event-location">Solar de Pancas</p>
+                <p class="event-address">Alenquer, Portugal</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">♪</div>
+                <h3>Primeira Dança</h3>
+                <p class="event-date">Sábado, 21 de junho, 2025</p>
+                <p class="event-time">23:00</p>
+                <p class="event-location">Solar de Pancas</p>
+                <p class="event-address">Alenquer, Portugal</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">✩</div>
+                <h3>Festa</h3>
+                <p class="event-date">Domingo, 22 de junho, 2025</p>
+                <p class="event-time">23:00 - 05:00</p>
                 <p class="event-location">Solar de Pancas</p>
                 <p class="event-address">Alenquer, Portugal</p>
             </div>
@@ -616,6 +736,45 @@
         </div>
     </section>
 
+    <section class="honeymoon" id="honeymoon">
+        <div class="section-title">
+            <h2>A Nossa Lua de Mel</h2>
+            <div class="divider"><span>&#10022;</span></div>
+        </div>
+        <div class="honeymoon-content">
+            <div class="honeymoon-intro">
+                <p>
+                    Após celebrarmos o nosso casamento, partiremos numa aventura inesquecível: 
+                    um roadtrip pelos Estados Unidos da América. Das costas da Califórnia às 
+                    montanhas do Colorado, das estradas lendárias de Route 66 às paisagens 
+                    deslumbrantes dos parques nacionais, esta será a nossa primeira grande 
+                    jornada como marido e mulher.
+                </p>
+            </div>
+            <div class="honeymoon-details">
+                <h3>O Nosso Sonho</h3>
+                <p>
+                    Sonhamos em explorar a vastidão e diversidade dos Estados Unidos, 
+                    criando memórias que durarão para sempre. Cada quilómetro percorrido, 
+                    cada pôr-do-sol testemunhado, cada cidade descoberta será um capítulo 
+                    especial na nossa história de amor.
+                </p>
+                <p>
+                    Se desejarem contribuir para tornar esta aventura ainda mais especial, 
+                    ficaríamos profundamente gratos. A vossa generosidade ajudará-nos a 
+                    criar experiências únicas e momentos mágicos durante esta jornada.
+                </p>
+            </div>
+            <div class="iban-section">
+                <h4>Contribuição para a Lua de Mel</h4>
+                <p>Se desejarem contribuir, podem fazê-lo através de numerário ou transferência bancária:</p>
+                <div class="iban-display" id="ibanDisplay">
+                    PT50 0033 0000 45800067857 05
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="rsvp" id="rsvp">
         <div class="section-title">
             <h2>Répondez S'il Vous Plaît</h2>
@@ -623,7 +782,7 @@
         </div>
         <div class="rsvp-container">
             <div class="rsvp-intro">
-                <p>Sentir-nos-íamos honrados com a vossa presença no nosso dia especial.<br>Agradecemos resposta até 1 de Maio, 2026.</p>
+                <p>Será um prazer contar com a vossa presença neste dia tão especial.<br>Agradecemos resposta até 1 de Maio, 2026.<br>Uma submissão por pessoa.</p>
             </div>
             <form class="rsvp-form" id="rsvpForm">
                 <div class="form-row">
@@ -688,7 +847,7 @@
     <footer>
         <div class="couple-initials">M & S</div>
         <p>Mariana & Sebastião</p>
-        <p>6 de Junho, 2026 &bull; Lisboa, Portugal</p>
+        <p>6 de Junho, 2026</p>
     </footer>
 
     <script>
@@ -700,6 +859,25 @@
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
+
+        // Copy IBAN to clipboard
+        const ibanDisplay = document.getElementById('ibanDisplay');
+        if (ibanDisplay) {
+            ibanDisplay.addEventListener('click', function() {
+                const iban = this.textContent.trim();
+                navigator.clipboard.writeText(iban).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'IBAN copiado! ✓';
+                    this.style.color = '#D4B896';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.color = '';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Erro ao copiar IBAN:', err);
+                });
+            });
+        }
 
         // Form submission
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
