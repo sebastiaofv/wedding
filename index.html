@@ -87,16 +87,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A572' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
 
         .hero-content {
             position: relative;
@@ -726,10 +716,9 @@
     </section>
 
     <footer>
-        <div class="couple-initials">E & J</div>
-        <p>Eleanor Ashford & James Montgomery</p>
-        <p>June 21, 2025 &bull; Greenwich, Connecticut</p>
-        <p class="hashtag">#AshfordMontgomeryWedding</p>
+        <div class="couple-initials">M & S</div>
+        <p>Mariana & Sebastião</p>
+        <p>6 de Junho, 2026 &bull; Lisboa, Portugal</p>
     </footer>
 
     <script>
@@ -769,6 +758,17 @@
             //     headers: { 'Content-Type': 'application/json' },
             //     body: JSON.stringify(data)
             // });
+
+            fetch('https://script.google.com/macros/s/AKfycbyehV6PpT2QmvKuaAlygxiYU7H03tIZTRRaOYeWBbOAcx9E0kGKienoUxMZs-3q3vWp8w/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: "Mariana", email: "mariana@example.com", message: "Hello, I will be attending the wedding." })
+            }).then(response => response.json()).then(data => {
+                console.log('Response:', data);
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+            
         });
 
         // Navigation background on scroll
