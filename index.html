@@ -3,9 +3,783 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariana e Sebastião</title>
+    <title>Eleanor & James | Wedding Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-green: #0f271b;
+            --deep-green: #2D4A3E;
+            --sage: #4A5D52;
+            --cream: #F8F6F1;
+            --off-white: #FAF9F6;
+            --ivory: #FFFFF0;
+            --gold: #C5A572;
+            --gold-light: #D4B896;
+            --charcoal: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: --forest-green;
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--forest-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A572' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .monogram {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .couple-names {
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--cream);
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .couple-names span {
+            font-style: italic;
+            font-size: 0.5em;
+            display: block;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .wedding-date {
+            font-size: 1.2rem;
+            color: var(--cream);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-title .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .section-title .divider::before,
+        .section-title .divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title .divider span {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Our Story Section */
+        .story {
+            background: var(--off-white);
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--sage);
+            line-height: 2;
+        }
+
+        /* Events Section */
+        .events {
+            background: var(--forest-green);
+            color: var(--cream);
+        }
+
+        .events .section-title h2 {
+            color: var(--cream);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .event-card .event-date {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .event-time {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-card .event-location {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-top: 1rem;
+        }
+
+        .event-card .event-address {
+            font-size: 0.9rem;
+            color: rgba(248, 246, 241, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        /* Details Section */
+        .details {
+            background: var(--cream);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .detail-item h4 {
+            font-size: 1.5rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .detail-item p {
+            color: var(--sage);
+            font-size: 0.95rem;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: linear-gradient(180deg, var(--off-white) 0%, var(--cream) 100%);
+        }
+
+        .rsvp-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .rsvp-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .rsvp-intro p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .rsvp-form {
+            background: white;
+            padding: 3rem;
+            border: 1px solid rgba(197, 165, 114, 0.3);
+            box-shadow: 0 10px 60px rgba(27, 61, 47, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--forest-green);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(27, 61, 47, 0.2);
+            background: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            accent-color: var(--forest-green);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            width: auto;
+            accent-color: var(--forest-green);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--forest-green);
+            color: var(--cream);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--deep-green);
+            transform: translateY(-2px);
+        }
+
+        .rsvp-deadline {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--sage);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--forest-green);
+            color: var(--cream);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        footer .couple-initials {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: rgba(248, 246, 241, 0.7);
+        }
+
+        footer .hashtag {
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .rsvp-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border: 1px solid var(--gold);
+        }
+
+        .success-message h3 {
+            font-size: 2rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: var(--sage);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    Mariana e Sebastião
+    <nav>
+        <ul>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="monogram">E & J</p>
+            <h1 class="couple-names">
+                Mariana
+                <span>&</span>
+                Sebastião
+            </h1>
+            <p class="wedding-date">06.06.2026</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="story" id="story">
+        <div class="section-title">
+            <h2>Our Story</h2>
+            <div class="divider"><span>&#10022;</span></div>
+        </div>
+        <div class="story-content">
+            <p>
+                What began as a chance encounter at a garden party in the Hamptons blossomed into
+                a love story written in the stars. Through quiet evenings by the fireplace and
+                adventures across distant shores, we discovered in each other a kindred spirit
+                and eternal companion. Now, we invite you to witness the next chapter of our
+                journey as we pledge our hearts forever.
+            </p>
+        </div>
+    </section>
+
+    <section class="events" id="events">
+        <div class="section-title">
+            <h2>Wedding Events</h2>
+            <div class="divider"><span>&#10022;</span></div>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-icon">&#9826;</div>
+                <h3>Welcome Dinner</h3>
+                <p class="event-date">Friday, June 20th, 2025</p>
+                <p class="event-time">7:00 PM</p>
+                <p class="event-location">The Conservatory at Rosewood Manor</p>
+                <p class="event-address">142 Garden Lane, Greenwich, CT</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">&#9829;</div>
+                <h3>Wedding Ceremony</h3>
+                <p class="event-date">Saturday, June 21st, 2025</p>
+                <p class="event-time">4:00 PM</p>
+                <p class="event-location">St. Andrew's Chapel</p>
+                <p class="event-address">89 Chapel Hill Road, Greenwich, CT</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">&#9734;</div>
+                <h3>Reception</h3>
+                <p class="event-date">Saturday, June 21st, 2025</p>
+                <p class="event-time">6:00 PM</p>
+                <p class="event-location">The Grand Ballroom at Rosewood Manor</p>
+                <p class="event-address">142 Garden Lane, Greenwich, CT</p>
+            </div>
+            <div class="event-card">
+                <div class="event-icon">&#9788;</div>
+                <h3>Farewell Brunch</h3>
+                <p class="event-date">Sunday, June 22nd, 2025</p>
+                <p class="event-time">10:30 AM</p>
+                <p class="event-location">The Terrace at Rosewood Manor</p>
+                <p class="event-address">142 Garden Lane, Greenwich, CT</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="details" id="details">
+        <div class="section-title">
+            <h2>Event Details</h2>
+            <div class="divider"><span>&#10022;</span></div>
+        </div>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h4>Attire</h4>
+                <p>Black Tie Optional. We kindly request guests refrain from wearing white or ivory.</p>
+            </div>
+            <div class="detail-item">
+                <h4>Accommodations</h4>
+                <p>A room block has been reserved at The Greenwich Hotel. Please mention the Ashford-Montgomery wedding.</p>
+            </div>
+            <div class="detail-item">
+                <h4>Transportation</h4>
+                <p>Complimentary shuttle service will be provided between the hotel and all event venues.</p>
+            </div>
+            <div class="detail-item">
+                <h4>Registry</h4>
+                <p>Your presence is the greatest gift. For those who wish to honor us, a registry is available.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+        <div class="section-title">
+            <h2>Répondez S'il Vous Plaît</h2>
+            <div class="divider"><span>&#10022;</span></div>
+        </div>
+        <div class="rsvp-container">
+            <div class="rsvp-intro">
+                <p>We would be honored by your presence on our special day.<br>Kindly respond by May 1st, 2025.</p>
+            </div>
+            <form class="rsvp-form" id="rsvpForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Will You Be Attending?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="yes" required>
+                            <span>Joyfully Accept</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="no">
+                            <span>Regretfully Decline</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Which Events Will You Attend?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="events" value="welcome">
+                            <span>Welcome Dinner</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="events" value="ceremony">
+                            <span>Ceremony</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="events" value="reception">
+                            <span>Reception</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="events" value="brunch">
+                            <span>Farewell Brunch</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dietary">Dietary Restrictions</label>
+                    <select id="dietary" name="dietary">
+                        <option value="none">No Restrictions</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                        <option value="kosher">Kosher</option>
+                        <option value="halal">Halal</option>
+                        <option value="other">Other (Please Specify Below)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies & Special Requirements</label>
+                    <textarea id="allergies" name="allergies" placeholder="Please list any food allergies or special dietary requirements for you or your guests..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message for the Couple (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Share your well wishes or any additional notes..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send RSVP</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                <h3>Thank You</h3>
+                <p>Your response has been received. We look forward to celebrating with you.</p>
+            </div>
+            <p class="rsvp-deadline">Kindly respond by May 1st, 2025</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="couple-initials">E & J</div>
+        <p>Eleanor Ashford & James Montgomery</p>
+        <p>June 21, 2025 &bull; Greenwich, Connecticut</p>
+        <p class="hashtag">#AshfordMontgomeryWedding</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Form submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            // Get all checked events
+            const events = [];
+            document.querySelectorAll('input[name="events"]:checked').forEach(cb => {
+                events.push(cb.value);
+            });
+            data.events = events;
+
+            console.log('RSVP Submitted:', data);
+
+            // Show success message
+            this.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            // In production, you would send this data to your server
+            // fetch('/api/rsvp', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(27, 61, 47, 0.98)';
+            } else {
+                nav.style.background = 'rgba(27, 61, 47, 0.95)';
+            }
+        });
+    </script>
 </body>
 </html>
