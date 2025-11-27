@@ -761,6 +761,7 @@
 
             fetch('https://script.google.com/macros/s/AKfycbyehV6PpT2QmvKuaAlygxiYU7H03tIZTRRaOYeWBbOAcx9E0kGKienoUxMZs-3q3vWp8w/exec', {
                 method: 'POST',
+                redirect: "follow",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: "Mariana", email: "mariana@example.com", message: "Hello, I will be attending the wedding." })
             }).then(response => response.json()).then(data => {
@@ -768,7 +769,7 @@
             }).catch(error => {
                 console.error('Error:', error);
             });
-            
+
         });
 
         // Navigation background on scroll
