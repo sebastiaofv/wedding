@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleanor & James | Wedding Celebration</title>
+    <title>Casamento Mariana & Sebastião</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -521,7 +521,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <p class="monogram">E & J</p>
+            <p class="monogram">M & S</p>
             <h1 class="couple-names">
                 Mariana
                 <span>&</span>
@@ -761,8 +761,9 @@
 
             fetch('https://script.google.com/macros/s/AKfycbyehV6PpT2QmvKuaAlygxiYU7H03tIZTRRaOYeWBbOAcx9E0kGKienoUxMZs-3q3vWp8w/exec', {
                 method: 'POST',
-                redirect: "follow",
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8", 
+                },
                 body: JSON.stringify({ name: "Mariana", email: "mariana@example.com", message: "Hello, I will be attending the wedding." })
             }).then(response => response.json()).then(data => {
                 console.log('Response:', data);
