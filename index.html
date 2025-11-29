@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Mariana & Sebastião - Em Construção</title>
     <link
         rel="icon"
@@ -38,12 +38,14 @@
             background-attachment: fixed;
             color: var(--cream);
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
             position: relative;
             overflow: hidden;
+            margin: 0;
         }
 
         body::before {
@@ -53,6 +55,10 @@
             left: 0;
             right: 0;
             bottom: 0;
+            width: 100%;
+            height: 100%;
+            height: 100vh;
+            height: 100dvh;
             background: var(--forest-green);
             opacity: 0.75;
             z-index: 0;
@@ -153,38 +159,6 @@
             animation: fadeInUp 1s ease 1.3s forwards;
         }
 
-        .decorative-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .decorative-elements::before,
-        .decorative-elements::after {
-            content: '❦';
-            position: absolute;
-            color: var(--gold);
-            opacity: 0.2;
-            font-size: 3rem;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .decorative-elements::before {
-            top: 10%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .decorative-elements::after {
-            bottom: 10%;
-            right: 10%;
-            animation: float 6s ease-in-out infinite 3s;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -196,16 +170,22 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
         @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            body::before {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                height: 100dvh;
+                min-height: 100%;
+                min-height: -webkit-fill-available;
+            }
+
             .monogram {
                 font-size: 1.2rem;
                 letter-spacing: 8px;
@@ -221,16 +201,10 @@
             .divider::after {
                 width: 50px;
             }
-
-            .decorative-elements::before,
-            .decorative-elements::after {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="decorative-elements"></div>
     <div class="container">
         <p class="monogram">M & S</p>
         <h1 class="couple-names">
